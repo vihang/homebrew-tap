@@ -1,8 +1,8 @@
 # Homebrew formula for yaamux.
 #
-# Source of truth: vihang/yaamux Formula/yaamux.rb. The Release workflow
-# auto-bumps a copy of it into this tap on every `v*` tag, substituting
-# the tagged URL and tarball SHA256.
+# Source of truth: vihang/yaamux Formula/yaamux.rb. Auto-bumped into
+# vihang/homebrew-tap on every `v*` tag, substituting the tagged URL
+# and tarball SHA256.
 #
 # Test locally before tagging:
 #   brew install --build-from-source ./Formula/yaamux.rb
