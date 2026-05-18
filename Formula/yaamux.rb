@@ -1,12 +1,13 @@
 # Homebrew formula for yaamux.
 #
-# Source of truth: vihang/yaamux Formula/yaamux.rb. The Release workflow
-# auto-bumps a copy of it into this tap on every `v*` tag, substituting
-# the tagged URL and tarball SHA256.
+# This file should live in the `vihang/homebrew-tap` repository at
+# `Formula/yaamux.rb`. It's committed here as a template that the v0.1.0
+# release workflow (.github/workflows/release.yml) will copy + sha-bump into
+# that tap repo via a PR.
 #
 # Test locally before tagging:
 #   brew install --build-from-source ./Formula/yaamux.rb
-#   yaamux --version    # → yaamux <VERSION> (brew)
+#   yaamux --version    # → yaamux 0.1.0 (brew)
 
 class Yaamux < Formula
   desc "Spawn N AI coding agents in parallel git worktrees in a tiled tmux grid"
@@ -28,8 +29,9 @@ class Yaamux < Formula
   end
 
   test do
-    assert_match "yaamux #{version}", shell_output("#{bin}/yaamux --version")
-    assert_match "yaamux #{version}", shell_output("#{bin}/ymx --version")
+    expected = (pkgshare/"VERSION").read.strip
+    assert_match "yaamux #{expected}", shell_output("#{bin}/yaamux --version")
+    assert_match "yaamux #{expected}", shell_output("#{bin}/ymx --version")
     assert_match "Agents Multiplexer", shell_output("#{bin}/yaamux --help")
   end
 end
