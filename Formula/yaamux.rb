@@ -11,14 +11,15 @@
 class Yaamux < Formula
   desc "Spawn N AI coding agents in parallel git worktrees in a tiled tmux grid"
   homepage "https://github.com/vihang/yaamux"
-  url "https://github.com/vihang/yaamux/archive/refs/tags/v0.1.7.tar.gz"
-  sha256 "5615d41d7020bd034a90f53308669583bbaa40e85f2d6bb412ca5b66b46b4327"
+  url "https://github.com/vihang/yaamux/archive/refs/tags/v0.1.8.tar.gz"
+  sha256 "294af99eca40f033245ac7054a01c78a5331851102a2bc76ae51c2e475e49f31"
   license "MIT"
 
   depends_on "tmux"
   depends_on "git"
   depends_on "python@3"
-  depends_on "mosh"   # for `--remote --mosh` and the mobile-attach deep link
+  depends_on "mosh"     # for `--remote --mosh` and the mobile-attach deep link
+  depends_on "qrencode" # for `--connect --qr` and the `Ctrl+Space Q` QR popup
 
   def install
     bin.install "yaamux"
