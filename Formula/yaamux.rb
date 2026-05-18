@@ -1,24 +1,24 @@
 # Homebrew formula for yaamux.
 #
-# This file should live in the `vihang/homebrew-tap` repository at
-# `Formula/yaamux.rb`. It's committed here as a template that the v0.1.0
-# release workflow (.github/workflows/release.yml) will copy + sha-bump into
-# that tap repo via a PR.
+# Source of truth: vihang/yaamux Formula/yaamux.rb. The Release workflow
+# auto-bumps a copy of it into this tap on every `v*` tag, substituting
+# the tagged URL and tarball SHA256.
 #
 # Test locally before tagging:
 #   brew install --build-from-source ./Formula/yaamux.rb
-#   yaamux --version    # → yaamux 0.1.0 (brew)
+#   yaamux --version    # → yaamux <VERSION> (brew)
 
 class Yaamux < Formula
   desc "Spawn N AI coding agents in parallel git worktrees in a tiled tmux grid"
   homepage "https://github.com/vihang/yaamux"
-  url "https://github.com/vihang/yaamux/archive/refs/tags/v0.1.1.tar.gz"
-  sha256 "8c25c8543f329ac5a76fb61814c6e974134f1304f5afac0f7e0f9f1dcf0bb546"
+  url "https://github.com/vihang/yaamux/archive/refs/tags/v0.1.2.tar.gz"
+  sha256 "2aec38af76c418c50dba644d79c5d7bcc0e98665392c8ee7c6c226a11ce1d449"
   license "MIT"
 
   depends_on "tmux"
   depends_on "git"
   depends_on "python@3"
+  depends_on "mosh"   # for `--remote --mosh` and the mobile-attach deep link
 
   def install
     bin.install "yaamux"
@@ -28,8 +28,8 @@ class Yaamux < Formula
   end
 
   test do
-    assert_match "yaamux 0.1.0", shell_output("#{bin}/yaamux --version")
-    assert_match "yaamux 0.1.0", shell_output("#{bin}/ymx --version")
+    assert_match "yaamux #{version}", shell_output("#{bin}/yaamux --version")
+    assert_match "yaamux #{version}", shell_output("#{bin}/ymx --version")
     assert_match "Agents Multiplexer", shell_output("#{bin}/yaamux --help")
   end
 end
