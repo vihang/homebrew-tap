@@ -11,8 +11,8 @@
 class Yaamux < Formula
   desc "Spawn N AI coding agents in parallel git worktrees in a tiled tmux grid"
   homepage "https://github.com/vihang/yaamux"
-  url "https://github.com/vihang/yaamux/archive/refs/tags/v0.1.8.tar.gz"
-  sha256 "294af99eca40f033245ac7054a01c78a5331851102a2bc76ae51c2e475e49f31"
+  url "https://github.com/vihang/yaamux/archive/refs/tags/v0.1.9.tar.gz"
+  sha256 "0dc784b61f7bc7ba79384b227e5a5e9f7ad676cded2f10c30b2676bcb6d6d7f7"
   license "MIT"
 
   depends_on "tmux"
